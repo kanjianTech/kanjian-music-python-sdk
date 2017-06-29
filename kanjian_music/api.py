@@ -156,7 +156,8 @@ class Api:
         url = urljoin(self.server_host, "/v1/search/artist")
         token = self.token()
         params = {"app_key": self.app_key, "access_token": token,
-                  "device_id": device_id, "keyword": keyword}
+                  "device_id": device_id, "page": page, "count": count,
+                  "keyword": keyword}
         sig = util.generate_sig(self.app_secret, **params)
         params.update(sig=sig)
         return client.get(url, params)
@@ -168,7 +169,8 @@ class Api:
         url = urljoin(self.server_host, "/v1/search/album")
         token = self.token()
         params = {"app_key": self.app_key, "access_token": token,
-                  "device_id": device_id, "keyword": keyword}
+                  "device_id": device_id, "page": page, "count": count,
+                  "keyword": keyword}
         sig = util.generate_sig(self.app_secret, **params)
         params.update(sig=sig)
         return client.get(url, params)
@@ -180,7 +182,8 @@ class Api:
         url = urljoin(self.server_host, "/v1/search/track")
         token = self.token()
         params = {"app_key": self.app_key, "access_token": token,
-                  "device_id": device_id, "keyword": keyword}
+                  "device_id": device_id, "page": page, "count": count,
+                  "keyword": keyword}
         sig = util.generate_sig(self.app_secret, **params)
         params.update(sig=sig)
         return client.get(url, params)
